@@ -77,8 +77,6 @@ services:
       - DATABASE_PASS=secret
       - DATABASE_NAME=teslamate
       - DATABASE_HOST=db
-      - TESLA_USERNAME=username@example.com
-      - TESLA_PASSWORD=secret
       - MQTT_HOST=mosquitto
       - VIRTUAL_HOST=localhost # if you're going to access the UI from another machine replace "localhost" with the hostname / IP address of the docker host
     ports:
@@ -128,6 +126,9 @@ volumes:
 
 Start everything with `docker-compose up`.
 
+Open the web interface (e.g. if running locally at
+[localhost:4000](http://localhost:4000)) and sign in with your Tesla Account.
+
 Finally, [import](#dashboards) the Grafana dashboards.
 
 ### Manual Installation
@@ -171,7 +172,10 @@ Finally, [import](#dashboards) the Grafana dashboards.
     _build/prod/rel/teslamate/bin/teslamate start
    ```
 
-Finally, [import](#dashboards) the Grafana dashboards.
+5. Open the web interface (e.g. if running locally at
+   [localhost:4000](http://localhost:4000)) and sign in with your Tesla Account.
+
+6. Finally, [import](#dashboards) the Grafana dashboards.
 
 ### Dashboards
 
@@ -245,8 +249,6 @@ TeslaMate uses environment variables for runtime configuration.
 | DATABASE_HOST          | Hostname of the database server (**required**)                                                                                                                                                                   | /                             |
 | DATABASE_PORT          | Port of the database server                                                                                                                                                                                      | 5432                          |
 | DATABASE_POOL_SIZE     | Size of the database connection pool                                                                                                                                                                             | 5                             |
-| TESLA_USERNAME         | Username / email of your Tesla account (**required**)                                                                                                                                                            | /                             |
-| TESLA_PASSWORD         | Password of your Tesla account (**required**)                                                                                                                                                                    | /                             |
 | VIRTUAL_HOST           | Host part used for generating URLs throughout the app                                                                                                                                                            | localhost                     |
 | PORT                   | Port where the web interface is exposed                                                                                                                                                                          | 4000                          |
 | DISABLE_MQTT           | Disables the MQTT feature if `true`                                                                                                                                                                              | false                         |
