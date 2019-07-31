@@ -1,0 +1,18 @@
+# config file version
+apiVersion: 1
+
+datasources:
+- name: Teslamate
+  type: postgres
+  access: proxy
+  url: $DATABASE_HOST
+  user: $DATABASE_USER
+  database: $DATABASE_NAME
+  isDefault: true
+  jsonData:
+     sslmode: ${DATABASE_SSL_MODE:-disable}
+     postgresVersion: ${DATABASE_VERSION:-1000}
+  secureJsonData:
+    password: $DATABASE_PASSWORD
+  version: 1
+  editable: true

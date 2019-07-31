@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -ex
+
+lang=$(cut -d '-' -f3 <<< "$DOCKER_TAG")
+docker build --build-arg LANG=$lang --tag "$DOCKER_REPO:$DOCKER_TAG" .
